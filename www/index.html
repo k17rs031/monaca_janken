@@ -118,15 +118,23 @@
         $("#newgame").css("display", "inline");
       }
 
+        $(function(){
+          var random_user_name = Math.random().toString(36).slice(-8);
+        // ユーザー名の表示
+        $("#username").html("プレイヤー名：" + random_user_name);
+        })
+
       // ゲーム初期化
       $(function(){
         newgame();
       })
+
     </script>
 </head>
 <body>
   <h1 class="text-white bg-primary">じゃんけん 連勝チャレンジ！</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
+  <div id="username" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 200px">
     <a onclick="gu();" class="btn btn-outline-primary hand" role="button">ぐー</a>
     <a onclick="choki();" class="btn btn-outline-primary hand" role="button">ちょき</a>
