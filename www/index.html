@@ -35,6 +35,7 @@
       var ncmb = new NCMB(appKey, clientKey);
       var JankenScore = ncmb.DataStore("JankenScore");
       var key = "score";
+      var key2 = "userName";
 
       // ハイスコア
       var high_score = 0;
@@ -50,6 +51,25 @@
       function pa() {
         janken(hand_pa);
       }
+ 
+
+      $(function(){
+        $("#username").html("ユーザー名：");
+      })
+
+        // ユーザー名の表示
+        function userRegist(){
+         var user_name = new JankenScore();
+          user_name.set(key2,aaaa)
+          .save()
+          .then(function(user_name){
+            $("#username").html("ユーザー名：")
+          })
+          .catch(function(){
+
+          });
+        }
+
 
       function janken(player_hand){
         // コンピュータの手を決定
@@ -117,12 +137,6 @@
         // ニューゲームボタン表示
         $("#newgame").css("display", "inline");
       }
-
-        $(function(){
-          var random_user_name = Math.random().toString(36).slice(-8);
-        // ユーザー名の表示
-        $("#username").html("プレイヤー名：" + random_user_name);
-        })
 
       // ゲーム初期化
       $(function(){
